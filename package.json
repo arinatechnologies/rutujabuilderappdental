@@ -1,0 +1,25 @@
+{
+  "name": "brightsmile-dental-clinic",
+  "version": "1.0.0",
+  "description": "Professional dental clinic website built with Eleventy",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "start": "eleventy --serve"
+  },
+  "keywords": [
+    "dental",
+    "clinic",
+    "healthcare",
+    "eleventy",
+    "website"
+  ],
+  "author": "BrightSmile Dental",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0",
+    "cheerio": "^1.1.0",
+    "fast-glob": "^3.3.3",
+    "pretty": "^2.0.0"
+  }
+}

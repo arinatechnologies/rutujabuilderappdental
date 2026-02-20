@@ -1,0 +1,185 @@
+---
+layout: ../_layouts/base.njk
+title: "Contact Us | Schedule Your Appointment"
+description: "Get in touch with BrightSmile Dental. Schedule appointments, ask questions, or visit our modern dental clinic."
+permalink: "/contact.html"
+extra_css:
+  - "/css/dental.css"
+extra_js: []
+---
+
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Contact Us</span>
+      <h1 class="hero-title">We're Here for Your Dental Health</h1>
+      <p class="hero-subtitle">Schedule your appointment, ask questions, or visit our modern clinic. Our friendly team is ready to assist you.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services-section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6">
+        <div class="section-header text-start">
+          <h2>Get in Touch</h2>
+          <p>Reach out to us through any of these convenient methods</p>
+        </div>
+        
+        <div class="contact-info mb-5">
+          <div class="d-flex align-items-start mb-4">
+            <div class="flex-shrink-0">
+              <div class="service-icon" style="width: 60px; height: 60px;">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h4>Visit Our Clinic</h4>
+              <p class="mb-1">123 Dental Avenue, Suite 100</p>
+              <p class="text-muted">Health District, Cityville 12345</p>
+              <a href="#" class="service-link">Get Directions <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-start mb-4">
+            <div class="flex-shrink-0">
+              <div class="service-icon" style="width: 60px; height: 60px;">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h4>Call Us</h4>
+              <p class="mb-1">Main: (555) 123-4567</p>
+              <p class="mb-1">Emergency: (555) 987-6543</p>
+              <p class="text-muted">24/7 emergency line available</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-start mb-4">
+            <div class="flex-shrink-0">
+              <div class="service-icon" style="width: 60px; height: 60px;">
+                <i class="fas fa-envelope"></i>
+              </div>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h4>Email Us</h4>
+              <p class="mb-1">Appointments: appointments@brightsmiledental.com</p>
+              <p class="mb-1">General: info@brightsmiledental.com</p>
+              <p class="text-muted">We respond within 24 hours</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="service-card">
+          <h3>Office Hours</h3>
+          <div class="hours-list">
+            <div class="hours-item">
+              <span class="hours-day">Monday - Thursday</span>
+              <span class="hours-time">8:00 AM - 7:00 PM</span>
+            </div>
+            <div class="hours-item">
+              <span class="hours-day">Friday</span>
+              <span class="hours-time">8:00 AM - 5:00 PM</span>
+            </div>
+            <div class="hours-item">
+              <span class="hours-day">Saturday</span>
+              <span class="hours-time">9:00 AM - 3:00 PM</span>
+            </div>
+            <div class="hours-item">
+              <span class="hours-day">Sunday</span>
+              <span class="hours-time">Emergency Only</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6">
+        <div class="service-card">
+          <h3>Schedule an Appointment</h3>
+          <p class="text-muted mb-4">Fill out the form below and we'll contact you to confirm your appointment</p>
+          
+          <form id="contactForm" class="custom-contact-form" data-form-handler data-api="" data-from="noreply@brightsmiledental.com" data-success="Thank you! We will contact you within 24 hours to confirm your appointment." data-error="Oops! Something went wrong. Please call us directly at (555) 123-4567." data-report-label="dental-appointment-form">
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name *</label>
+              <input type="text" class="form-control" id="name" name="name" required placeholder="John Smith">
+            </div>
+            
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="phone" class="form-label">Phone Number *</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required placeholder="(555) 123-4567">
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email Address *</label>
+                <input type="email" class="form-control" id="email" name="email" required placeholder="john@example.com">
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="service" class="form-label">Service Interested In</label>
+              <select class="form-select" id="service" name="service">
+                <option value="">Select a service</option>
+                <option value="general">General Dentistry</option>
+                <option value="cosmetic">Cosmetic Dentistry</option>
+                <option value="implants">Dental Implants</option>
+                <option value="ortho">Orthodontics</option>
+                <option value="emergency">Emergency Care</option>
+                <option value="pediatric">Pediatric Dentistry</option>
+                <option value="cleaning">Cleaning & Checkup</option>
+              </select>
+            </div>
+            
+            <div class="mb-3">
+              <label for="date" class="form-label">Preferred Date</label>
+              <input type="date" class="form-control" id="date" name="date">
+            </div>
+            
+            <div class="mb-3">
+              <label for="message" class="form-label">Message or Special Requests</label>
+              <textarea class="form-control" id="message" name="message" rows="4" placeholder="Please include any symptoms, concerns, or preferred time of day..."></textarea>
+            </div>
+            
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="consent" name="consent" required>
+              <label class="form-check-label" for="consent">
+                I consent to having this website store my submitted information so they can respond to my inquiry.
+              </label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary w-100">
+              <i class="fas fa-paper-plane me-2"></i>Request Appointment
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-choose-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Find Our Clinic</h2>
+      <p>Conveniently located with ample parking and accessible by public transportation</p>
+    </div>
+    <div class="service-card">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h4 class="mb-3">Location Details</h4>
+          <ul class="service-features">
+            <li><i class="fas fa-parking text-primary"></i> Free patient parking available</li>
+            <li><i class="fas fa-wheelchair text-primary"></i> Wheelchair accessible</li>
+            <li><i class="fas fa-bus text-primary"></i> Bus stop directly outside</li>
+            <li><i class="fas fa-baby text-primary"></i> Stroller-friendly facility</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <div class="ratio ratio-16x9">
+            <img src="https://images.pexels.com/photos/3845736/pexels-photo-3845736.jpeg" alt="Dental clinic location map" class="img-fluid rounded" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
