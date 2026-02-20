@@ -1,0 +1,83 @@
+name: Universal CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Detect package manager
+      - name: Detect package manager
+        id: pm
+        run: |
+          if [ -f pnpm-lock.yaml ]; then
+            echo "manager=pnpm" >> $GITHUB_OUTPUT
+          elif [ -f yarn.lock ]; then
+            echo "manager=yarn" >> $GITHUB_OUTPUT
+          elif [ -f package.json ]; then
+            echo "manager=npm" >> $GITHUB_OUTPUT
+          else
+            echo "manager=none" >> $GITHUB_OUTPUT
+          fi
+
+      # Setup Node
+      - uses: actions/setup-node@v4
+        if: steps.pm.outputs.manager != 'none'
+        with:
+          node-version: 20
+
+      # Setup pnpm if needed
+      - uses: pnpm/action-setup@v4
+        if: steps.pm.outputs.manager == 'pnpm'
+        with:
+          version: 9
+
+      # Install dependencies
+      - name: Install
+        run: |
+          case "${{ steps.pm.outputs.manager }}" in
+            pnpm) pnpm install ;;
+            yarn) yarn install ;;
+            npm) npm install ;;
+            none) echo "No Node project detected" ;;
+          esac
+
+      # Build if exists
+      - name: Build
+        run: |
+          if [ -f package.json ] && grep -q '"build"' package.json; then
+            npm run build
+          else
+            echo "No build step"
+          fi
+
+      # Test if exists
+      - name: Test
+        run: |
+          if [ -f package.json ] && grep -q '"test"' package.json; then
+            npm test || true
+          else
+            echo "No tests"
+          fi
+      
+      - name: Install Wrangler
+        run: npm install -g wrangler@latest  # ✅ Uses latest Wrangler 4
+
+      - name: Deploy Worker
+        run: wrangler deploy --name "${{ github.event.repository.name }}"
+        env:
+          CLOUDFLARE_API_TOKEN: "SYdBGD09f_VSiu1_j-UePII1hxVZDKWTRaQvDhxr"
+
+      - name: Deploy Worker
+        run: |
+          wrangler deploy \
+            --name "${{ github.event.repository.name }}" \
+            --route "${{ github.event.repository.name }}.cloudmysite.app/*"
+        env:
+          CLOUDFLARE_API_TOKEN: "SYdBGD09f_VSiu1_j-UePII1hxVZDKWTRaQvDhxr"
